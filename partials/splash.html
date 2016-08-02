@@ -18,7 +18,7 @@
 	  <input id="password" type="password" class="validate">
 	  <label for="password">Password</label>
 	</div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light">Register<i class="material-icons right">send</i></button></div></div>
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateSelect()">Register</button></div></div>
 </form>
 
 <form ng-show="loginMode">
@@ -30,8 +30,31 @@
 	  <input id="password" type="password" class="validate">
 	  <label for="password">Password</label>
 	</div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light">Login<i class="material-icons right">send</i></button></div></div>
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateSelect()">Login</button></div></div>
 </form>
+
+
+<form ng-show="selectMode">
+	<div class="input-field">
+		<select class="form-control" ng-model="value" ng-change="instructorSelect()">
+			<option value="" disabled selected>Choose your instructor</option>
+			<option value="1">Joe Shepherd</option>
+			<option value="2">Steve Brownlee</option>
+		</select>
+		<label>Instructor Select</label>
+	</div>
+</form>
+
+
+<!-- <form ng-show="selectMode">
+	<div class="input-field">
+		<select ng-change="instructorSelect()" ng-model="selectedInstructor" >
+			<option value="" disabled selected>Choose your instructor</option>
+			<option value="1">Joe Shepherd</option>
+		</select>
+		<label>Instructor Select</label>
+	</div>
+</form> -->
 
 
   

@@ -7,5 +7,9 @@ app.config(function($routeProvider) {
 	.when('/', {
       templateUrl: "partials/splash.html",
       controller: "SplashCtrl"
-    }).otherwise('/');
+    })
+	.when('/instructor', {
+      templateUrl: "partials/instructor.html",
+      controller: "InstructorCtrl"
+   })
 });
