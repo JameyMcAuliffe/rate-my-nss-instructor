@@ -1,3 +1,16 @@
-<div class="row">
-	<h1>Hey Joe</h1>
+
+<form>
+	<div class="input-field">
+		<select id="instructorSelect" class="form-control" ng-model="value" ng-change="instructorSelect()">
+			<option selected disabled>Choose your instructor</option>
+			<option>Joe Shepherd</option>
+			<option>Steve Brownlee</option>
+		</select>
+		<label>Instructor Select</label>
+	</div>
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="selectInstructor()">Select</button></div></div>
+</form>
+
+<div class="row" ng-show="selectedInstructor">
+	<h1>Instructor's profile</h1>
 </div>

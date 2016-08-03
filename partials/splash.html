@@ -3,13 +3,13 @@
 </div>
 
 
-<div class="row" ng-show="login_register">
+<!-- <div class="row" ng-show="login_register">
   <button ng-click="activateLogin()">Login</button>
   <button ng-click="activateRegister()">Register</button>
-</div>
+</div> -->
 
 
-<form ng-show="registerMode">
+<form ng-show="login_register">
 	<div class="input-field">
 	  <input id="email" type="email" class="validate">
 	  <label for="email">Email</label>
@@ -18,10 +18,12 @@
 	  <input id="password" type="password" class="validate">
 	  <label for="password">Password</label>
 	</div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateSelect()">Register</button></div></div>
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateInstructor()">Register</button></div></div>
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateInstructor()">Login</button></div></div>
 </form>
 
-<form ng-show="loginMode">
+
+<!-- <form ng-show="loginMode">
 	<div class="input-field">
 	  <input id="email" type="email" class="validate">
 	  <label for="email">Email</label>
@@ -31,30 +33,11 @@
 	  <label for="password">Password</label>
 	</div>
 	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateSelect()">Login</button></div></div>
-</form>
-
-
-<form ng-show="selectMode">
-	<div class="input-field">
-		<select class="form-control" ng-model="value" ng-change="instructorSelect()">
-			<option value="" disabled selected>Choose your instructor</option>
-			<option value="1">Joe Shepherd</option>
-			<option value="2">Steve Brownlee</option>
-		</select>
-		<label>Instructor Select</label>
-	</div>
-</form>
-
-
-<!-- <form ng-show="selectMode">
-	<div class="input-field">
-		<select ng-change="instructorSelect()" ng-model="selectedInstructor" >
-			<option value="" disabled selected>Choose your instructor</option>
-			<option value="1">Joe Shepherd</option>
-		</select>
-		<label>Instructor Select</label>
-	</div>
 </form> -->
+
+
+
+
 
 
   

@@ -21,10 +21,11 @@
 
 
  	<!-- ============= LINK TAGS ============= -->
-  <!-- BEGINNING OF THE DANG LINK TAGS -->
   <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="lib/bower_components/angular/angular.min.js"></script>
   <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="lib/bower_components/firebase/firebase.js"></script>
+  
  
 
 
@@ -35,9 +36,11 @@
 
 	<!-- APP FIRST -->
   <script src="app/app.js"></script>
+  <script src="app/values/FirebaseCreds.js"></script>
 
   <!-- FACTORIES SECOND -->
   <script type="text/javascript" src="/app/factories/AuthFactory.js"></script>
+  <script type="text/javascript" src="/app/factories/DatabaseFactory.js"></script>
 
   <!-- CONTROLLERS LAST -->
   <script src="app/controllers/SplashCtrl.js"></script>
