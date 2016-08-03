@@ -8,6 +8,16 @@ app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 		console.log("studentsButtonClick");
 	};
 
+	$scope.activateRegister = function() {
+		$scope.registerMode = true;
+		$scope.loginMode = false;
+	};	
+
+	$scope.activateLogin = function() {
+		$scope.registerMode = false;
+		$scope.loginMode = true;
+	};
+
 	$scope.login = function() {
 		AuthFactory.signIn($scope.loginEmail, $scope.loginPassword);
 		$location.url("/instructor");
@@ -17,7 +27,7 @@ app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 	$scope.register = function() {
 		AuthFactory.createAccount($scope.registerEmail, $scope.registerPassword);
 		$location.url("/instructor");
-		console.log("user registered");
+		console.log("new user registered");
 	};
 
 	//$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];

@@ -69,6 +69,7 @@ app.factory('AuthFactory', function() {
   };
 
   let logout = function() {
+    currentUserId = null;
     return firebase.auth().signOut();
   };
 
