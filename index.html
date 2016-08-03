@@ -5,31 +5,29 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Rate My NSS Instructor</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 	<link rel="stylesheet" href="styles/main.css">
 </head>
 <body ng-app="RateApp">
 
+  <!-- ============= NAV BAR ============= -->
+  <!-- BEGINNING OF NAV -->
+  <div ng-include="'./partials/navBar.html'"></div>
+  <!-- END OF NAV BAR -->
+
+
   <div class="container" ng-view></div>
 	
-	<!-- ============= LINK TAGS ============= -->
-  <!-- BEGINNING OF THE DANG LINK TAGS -->
-	<!-- <script src="lib/bower_components/angular/angular.min.js"></script>
-  <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
-  <script src="lib/bower_components/firebase/firebase.js"></script>
- -->
-  <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
-  <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script> -->
 
-  <!-- Materialize: Latest compiled and minified JavaScript -->
-  
-  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.8/angular-materialize.min.js"></script>
- -->
 
  	<!-- ============= LINK TAGS ============= -->
-  <!-- BEGINNING OF THE DANG LINK TAGS -->
+  <script type="text/javascript" src="lib/bower_components/jquery/dist/jquery.min.js"></script>
   <script src="lib/bower_components/angular/angular.min.js"></script>
   <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="lib/bower_components/firebase/firebase.js"></script>
+  
+ 
+
 
   <!-- Materialize: jQuery (necessary for Materialize's JavaScript plugins) -->
   <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
@@ -38,11 +36,16 @@
 
 	<!-- APP FIRST -->
   <script src="app/app.js"></script>
+  <script src="app/values/FirebaseCreds.js"></script>
 
   <!-- FACTORIES SECOND -->
+  <script type="text/javascript" src="/app/factories/AuthFactory.js"></script>
+  <script type="text/javascript" src="/app/factories/DatabaseFactory.js"></script>
 
   <!-- CONTROLLERS LAST -->
   <script src="app/controllers/SplashCtrl.js"></script>
+  <script src="app/controllers/NavCtrl.js"></script>
+  <script src="app/controllers/InstructorCtrl.js"></script>
 
   <!-- END OF THE DANG LINK TAGS -->
 
