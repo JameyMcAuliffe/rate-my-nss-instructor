@@ -11,15 +11,15 @@
 
 <form ng-show="login_register">
 	<div class="input-field">
-	  <input id="email" type="email" class="validate">
+	  <input id="email" type="email" class="validate" ng-model="registerEmail">
 	  <label for="email">Email</label>
 	</div>
 	<div class="input-field">
-	  <input id="password" type="password" class="validate">
+	  <input id="password" type="password" class="validate" ng-model="registerPassword">
 	  <label for="password">Password</label>
 	</div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateInstructor()">Register</button></div></div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateInstructor()">Login</button></div></div>
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="register()">Register</button></div></div>
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="login()">Login</button></div></div>
 </form>
 
 
