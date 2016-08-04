@@ -2,9 +2,9 @@
 <form>
 	<div class="input-field">
 		<select id="instructorSelect" class="form-control" ng-model="value">
-			<option selected disabled>Choose your instructor</option>
-			<option>Joe Shepherd</option>
-			<option>Steve Brownlee</option>
+			<option selected disabled value="">Choose your instructor</option>
+			<option value="0">Joe Shepherd</option>
+			<option value="1">Steve Brownlee</option>
 		</select>
 		<label>Instructor Select</label>
 	</div>
@@ -13,45 +13,50 @@
 
 <!-- Instructor's profile -->
 <div class="row" ng-show="selectedInstructor">
-	<h1>{{instructor}}'s profile</h1>
+	<h1>Instructor's profile</h1>
 	<div class="rate">
 		<button ng-click="activateRate()">Rate</button>
 	</div>
 </div>
 	
 <!-- Hidden rate form -->
-<form ng-show="rateForm">
-	<p>
-    <input name="rate" type="radio" id="0" />
-    <label for="0">0</label>
-  </p>
-  <p>
-    <input name="rate" type="radio" id="1" />
-    <label for="1">1</label>
-  </p>
-  <p>
-    <input name="rate" type="radio" id="2" />
-    <label for="2">2</label>
-  </p>
-  <p>
-    <input name="rate" type="radio" id="3" />
-    <label for="3">3</label>
-  </p>
-  <p>
-    <input name="rate" type="radio" id="4" />
-    <label for="4">4</label>
-  </p> 
-  <p>
-    <input name="rate" type="radio" id="5" />
-    <label for="5">5</label>
-  </p>
+<div ng-show="rateForm">
+	<form class="form-group">
+		<div class="radioGroup">
+	    <input name="rate" type="radio" id="0" ng-model="newRating.rating" ng-value="0"/>
+	    <label for="0">0</label>
+	  
+	    <input name="rate" type="radio" id="1" ng-model="newRating.rating" ng-value="1"/>
+	    <label for="1">1</label>
+	  
+	    <input name="rate" type="radio" id="2" ng-model="newRating.rating" ng-value="2"/>
+	    <label for="2">2</label>
+	  
+	    <input name="rate" type="radio" id="3" ng-model="newRating.rating" ng-value="3"/>
+	    <label for="3">3</label>
+	  
+	    <input name="rate" type="radio" id="4" ng-model="newRating.rating" ng-value="4"/>
+	    <label for="4">4</label>
+	  
+	    <input name="rate" type="radio" id="5" ng-model="newRating.rating" ng-value="5"/>
+	    <label for="5">5</label>
+
+	    	<!-- <label ng-repeat="rating in ratings" for="{{rating}}">
+       {{ratings}}
+       <input type="radio" 
+       				ng-model="newRating.rating" 
+       				ng-value="rating"
+       				name="rate">
+      </label> -->
+	  </div>
+	 </form>
 	<div class="row">
     <div class="input-field col s12">
-      <textarea id="textarea1" class="materialize-textarea"></textarea>
+      <textarea id="textarea1" class="materialize-textarea" ng-model="newRating.comment"></textarea>
       <label for="textarea1" placeholder="Type here...">Comments:</label>
     </div>
   </div>
   <div class="row">
   	<button ng-click="submitRating()">Submit</button>
   </div>
-</form>
+</div>
