@@ -16,6 +16,12 @@
 	<h1>{{instructors[instructor]}}'s profile</h1>
 	<div class="rate">
 		<button ng-click="activateRate()">Rate</button>
+</div>
+	<div ng-repeat="thingy in ratings">
+		<div class="row">
+			<p>Rating: {{thingy.rating}}</p>
+			<p>Comment: {{thingy.comment}}</p>
+		</div>
 	</div>
 </div>
 	

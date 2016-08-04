@@ -6,6 +6,14 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
   	$('select').material_select();
 	});
 
+	DatabaseFactory.getRatings()
+	.then(function(ratingsArray) {
+		$scope.ratings = ratingsArray;
+		if($scope.ratings.length > 5) {
+			$scope.ratings.pop();
+		}
+	});
+
 	$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
 
 	$scope.getInstructor = function() {
