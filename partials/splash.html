@@ -2,38 +2,37 @@
 	<button ng-click="studentsButtonClick()">Students</button>
 </div>
 
+<!-- new user/login buttons -->
+<div class="row" ng-show="login_register">
+  <button ng-click="activateRegister()">New User?</button>
+  <button ng-click="activateLogin()">Returning User</button>
+</div>
 
-<!-- <div class="row" ng-show="login_register">
-  <button ng-click="activateLogin()">Login</button>
-  <button ng-click="activateRegister()">Register</button>
-</div> -->
-
-
-<form ng-show="login_register">
+<!-- registration show/hide -->
+<form ng-show="registerMode">
 	<div class="input-field">
-	  <input id="email" type="email" class="validate">
+	  <input id="email" type="email" class="validate" ng-model="registerEmail">
 	  <label for="email">Email</label>
 	</div>
 	<div class="input-field">
-	  <input id="password" type="password" class="validate">
+	  <input id="password" type="password" class="validate" ng-model="registerPassword">
 	  <label for="password">Password</label>
 	</div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateInstructor()">Register</button></div></div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateInstructor()">Login</button></div></div>
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="register()">Register</button></div></div>
 </form>
 
-
-<!-- <form ng-show="loginMode">
+<!-- login show/hide -->
+<form ng-show="loginMode">
 	<div class="input-field">
-	  <input id="email" type="email" class="validate">
+	  <input id="email" type="email" class="validate" ng-model="loginEmail">
 	  <label for="email">Email</label>
 	</div>
 	<div class="input-field">
-	  <input id="password" type="password" class="validate">
+	  <input id="password" type="password" class="validate" ng-model="loginPassword">
 	  <label for="password">Password</label>
 	</div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="activateSelect()">Login</button></div></div>
-</form> -->
+	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="login()">Login</button></div></div>
+</form>
 
 
 

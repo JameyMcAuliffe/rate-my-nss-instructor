@@ -11,8 +11,14 @@ app.controller("InstructorCtrl", function($scope) {
 		console.log("selectInstructor");
 		let instructor = $("#instructorSelect").val();
 		console.log(instructor);
+		return instructor;
 	};
 
+	$scope.activateRate = function() {
+		$scope.rateForm = true;
+	};
 
-
+	$scope.submitRating = function() {
+		$scope.rateForm = false;
+	}
 });

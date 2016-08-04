@@ -1,5 +1,9 @@
-<nav>
-		<div class="nav">
+<nav ng-controller="NavCtrl">
+		<div class="nav-wrapper">
 			Navbar
+			<!-- logout button -->
+		<ul id="nav-links" class="right hide-on-med-and-down">
+      <li ><a ng-click="logout()" href="#/" title="">Logout</a></li>
+    </ul>
 		</div>
 </nav>
