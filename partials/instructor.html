@@ -2,7 +2,7 @@
 <form>
 	<div class="input-field">
 		<select id="instructorSelect" class="form-control" ng-model="value">
-			<option selected disabled value="">Choose your instructor</option>
+			<option value="" selected disabled value="">Choose your instructor</option>
 			<option value="0">Joe Shepherd</option>
 			<option value="1">Steve Brownlee</option>
 		</select>
@@ -13,9 +13,15 @@
 
 <!-- Instructor's profile -->
 <div class="row" ng-show="selectedInstructor">
-	<h1>Instructor's profile</h1>
+	<h1>{{instructors[instructor]}}'s profile</h1>
 	<div class="rate">
 		<button ng-click="activateRate()">Rate</button>
+</div>
+	<div ng-repeat="thingy in ratings">
+		<div class="row">
+			<p>Rating: {{thingy.rating}}</p>
+			<p>Comment: {{thingy.comment}}</p>
+		</div>
 	</div>
 </div>
 	

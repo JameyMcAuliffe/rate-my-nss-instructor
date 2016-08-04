@@ -6,18 +6,26 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
   	$('select').material_select();
 	});
 
+	DatabaseFactory.getRatings()
+	.then(function(ratingsArray) {
+		$scope.ratings = ratingsArray;
+		if($scope.ratings.length > 5) {
+			$scope.ratings.pop();
+		}
+	});
+
+	$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
+
 	$scope.getInstructor = function() {
 		let instructor = $("#instructorSelect").val();
 		console.log(instructor);
 		return instructor;
-	}
+	};
 
 	$scope.selectInstructor = function() {
 		$scope.selectedInstructor = true;
-		console.log("selectInstructor");
-		// let instructor = $("#instructorSelect").val();
-		// console.log(instructor);
-		// return instructor;
+		let instructor = $("#instructorSelect").val();
+		console.log("selectInstructor", instructor);
 	};
 
 	$scope.activateRate = function() {
@@ -37,7 +45,7 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	iid: ""
  	};
 
- 	$scope.ratings = [0, 1, 2, 3, 4, 5];
+
 	//add newRating to firebase using postNewRating from DatabaseFactory
 	$scope.addNewRating = function() {
 
@@ -47,6 +55,12 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		DatabaseFactory.postNewRating($scope.newRating)
 		.then(function(response) {
 			console.log("response", response);
+		})
+		.then(function() {
+			DatabaseFactory.getRatings()
+			.then(function(data) {
+				console.log(data);
+			});
 		});
 	};
 });
