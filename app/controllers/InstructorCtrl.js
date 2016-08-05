@@ -11,15 +11,27 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	DatabaseFactory.getRatings()
 	.then(function(ratingsArray) {
 		$scope.ratings = ratingsArray;
+		console.log($scope.ratings);
+		let total = 0;
+		angular.forEach(ratingsArray, function(value) {
+			let rating = parseInt(value.rating);
+			total = total + rating;
+		});
+		console.log("total", total);
+		$scope.totalRating = total / ratingsArray.length;
+		console.log("totalRating", $scope.totalRating);
 	});
 
-	// $scope.getAvgRating = function(ratingsArray) {
+	// DatabaseFactory.getRatings()
+	// .then(function(ratingsArray) {
 	// 	let total = 0;
-	// 	angular.forEach($scope.ratings, function(value, key) {
+	// 	angular.forEach(ratingsArray, function(value) {
 	// 		total = total + value.rating;
 	// 	});
-	// 	return total;
-	// };
+	// 	console.log("total", total);
+	// 	$scope.totalRating = total / ratingsArray.length;
+	// 	console.log("totalRating", $scope.totalRating);
+	// });
 	
 
 	//may not be needed
