@@ -14,17 +14,21 @@
 <!-- Instructor's profile -->
 <div class="row" ng-show="selectedInstructor">
 	<div class="center-align">
-		<h2>{{instructor}}'s profile</h2>
+		<h2>{{instructor}}'s Profile</h2>
 	</div>
 	<div class="rate center-align">
 		<button class="btn waves-effect waves-light" ng-click="activateRate()">Add Your Rating</button>
 </div>
-	<div ng-repeat="thingy in ratings">
-		<div class="row">
+	<div class="row">
+		<div ng-repeat="thingy in ratings">
 			<h5>Rating: {{thingy.rating}}</h5>
 			<h5>{{thingy.comment}}</h5>
 		</div>
+		<div class="row right-align">
+			<h4>Overall Rating:</h4>
+		</div>
 	</div>
+	
 </div>
 	
 <!-- Hidden rate form -->
@@ -64,7 +68,7 @@
       <label for="textarea1" placeholder="Type here...">Comments:</label>
     </div>
   </div>
-  <div class="row">
-  	<button ng-click="submitRating()">Submit</button>
+  <div class="row center-align">
+  	<button class="btn waves-effect waves-light" ng-click="submitRating()">Submit</button>
   </div>
 </div>
