@@ -24,17 +24,19 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 
 	$scope.selectInstructor = function() {
 		$scope.selectedInstructor = true;
-		let instructor = $("#instructorSelect").val();
-		console.log("selectInstructor", instructor);
+		$scope.instructor = $("#instructorSelect").val();
+		console.log("selectInstructor", $scope.instructor);
 	};
 
 	$scope.activateRate = function() {
 		$scope.rateForm = true;
+		$scope.selectedInstructor = false;
 	};
 
 	$scope.submitRating = function() {
 		$scope.rateForm = false;
 		$scope.addNewRating();
+		$scope.selectedInstructor = true;
 	};
 
 	//object to hold values of new ratings
