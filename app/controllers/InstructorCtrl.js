@@ -2,20 +2,31 @@
 
 app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, AuthFactory) {
 
+	//needed to show select options
 	$(document).ready(function() {
   	$('select').material_select();
 	});
 
+	//creates an array of rating objects which are used to populate the dom
 	DatabaseFactory.getRatings()
 	.then(function(ratingsArray) {
 		$scope.ratings = ratingsArray;
-		if($scope.ratings.length > 5) {
-			$scope.ratings.pop();
-		}
 	});
 
+	// $scope.getAvgRating = function(ratingsArray) {
+	// 	let total = 0;
+	// 	angular.forEach($scope.ratings, function(value, key) {
+	// 		total = total + value.rating;
+	// 	});
+	// 	return total;
+	// };
+	
+
+	//may not be needed
 	$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
 
+/******************** Show/Hide functionality **********************/
+	
 	$scope.getInstructor = function() {
 		let instructor = $("#instructorSelect").val();
 		console.log(instructor);
@@ -39,6 +50,9 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.selectedInstructor = true;
 	};
 
+	/******************** End Show/Hide functionality **********************/
+
+
 	//object to hold values of new ratings
 	$scope.newRating = {
 	rating: "",
@@ -58,10 +72,11 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		.then(function(response) {
 			console.log("response", response);
 		})
+		//dynamically adds new rating to the dom
 		.then(function() {
 			DatabaseFactory.getRatings()
-			.then(function(data) {
-				console.log(data);
+			.then(function(ratingsArray) {
+				$scope.ratings = ratingsArray;
 			});
 		});
 	};
