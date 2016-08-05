@@ -20,7 +20,7 @@
 		<button class="btn waves-effect waves-light" ng-click="activateRate()">Add Your Rating</button>
 </div>
 	<div class="row">
-		<div ng-repeat="thingy in ratings">
+		<div ng-repeat="thingy in ratings | limitTo:5">
 			<h5>Rating: {{thingy.rating}}</h5>
 			<h5>{{thingy.comment}}</h5>
 		</div>

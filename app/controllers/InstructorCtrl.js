@@ -11,10 +11,8 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	DatabaseFactory.getRatings()
 	.then(function(ratingsArray) {
 		$scope.ratings = ratingsArray;
-		if($scope.ratings.length > 5) {
-			$scope.ratings.pop();
-		}
 	});
+	
 
 	//may not be needed
 	$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
@@ -67,17 +65,11 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 			console.log("response", response);
 		})
 		.then(function() {
+			$scope.printToDom();
 			DatabaseFactory.getRatings()
 			.then(function(ratingsArray) {
 				$scope.ratings = ratingsArray;
-				if($scope.ratings.length > 5) {
-					$scope.ratings.pop();
-				}
 			});
-			// DatabaseFactory.getRatings()
-			// .then(function(data) {
-			// 	console.log(data);
-			// });
 		});
 	};
 });
