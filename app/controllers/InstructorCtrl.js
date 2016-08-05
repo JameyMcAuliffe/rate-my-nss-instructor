@@ -12,6 +12,14 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	.then(function(ratingsArray) {
 		$scope.ratings = ratingsArray;
 	});
+
+	// $scope.getAvgRating = function(ratingsArray) {
+	// 	let total = 0;
+	// 	angular.forEach($scope.ratings, function(value, key) {
+	// 		total = total + value.rating;
+	// 	});
+	// 	return total;
+	// };
 	
 
 	//may not be needed
@@ -64,8 +72,8 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		.then(function(response) {
 			console.log("response", response);
 		})
+		//dynamically adds new rating to the dom
 		.then(function() {
-			$scope.printToDom();
 			DatabaseFactory.getRatings()
 			.then(function(ratingsArray) {
 				$scope.ratings = ratingsArray;
