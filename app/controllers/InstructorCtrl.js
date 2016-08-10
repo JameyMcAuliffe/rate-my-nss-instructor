@@ -49,6 +49,8 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.selectedInstructor = true;
 		$scope.instructor = $("#instructorSelect").val();
 		console.log("selectInstructor", $scope.instructor);
+		$scope.showEditDelete = false;
+
 	};
 
 	$scope.activateRate = function() {
@@ -60,6 +62,8 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.rateForm = false;
 		$scope.addNewRating();
 		$scope.selectedInstructor = true;
+		$scope.hideRatingButton = true;
+		$scope.showEditDelete = true;
 	};
 
 	/******************** End Show/Hide functionality **********************/

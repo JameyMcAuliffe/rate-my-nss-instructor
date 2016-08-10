@@ -17,8 +17,13 @@
 		<h2>{{instructor}}'s Profile</h2>
 	</div>
 	<div class="rate center-align">
-		<button class="btn waves-effect waves-light" ng-click="activateRate()">Add Your Rating</button>
+		<button class="btn waves-effect waves-light" ng-click="activateRate()" ng-hide="hideRatingButton">Add Your Rating</button>
+		<button class="btn waves-effect waves-light" ng-show="showEditDelete">Edit Your Rating</button>
+		<button class="btn waves-effect waves-light" ng-show="showEditDelete">Delete Your Rating</button>
+
 </div>
+	
+	<!-- User comments and ratings -->
 	<div class="row">
 		<div class="col s8 left" ng-repeat="thingy in ratings | limitTo:5">
 			<div class="divider"></div>
@@ -26,6 +31,8 @@
 			<h5>{{thingy.comment}}</h5>
 			<div class="divider"></div>
 		</div>
+
+		<!-- Average Rating -->
 		<div class="col s4 right">
 			<h3>Overall Rating:</h3>
 			<h2>{{totalRating | number: 1}}</h2>
