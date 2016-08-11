@@ -11,7 +11,9 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	DatabaseFactory.getRatings()
 	.then(function(ratingsArray) {
 		$scope.ratings = ratingsArray;
-		console.log($scope.ratings);
+		console.log("ratingsArray", $scope.ratings);
+
+		//Loop through ratingsArray to calculate Average Rating
 		let total = 0;
 		angular.forEach(ratingsArray, function(value) {
 			let rating = parseInt(value.rating);
@@ -37,7 +39,7 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	//may not be needed
 	$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
 
-/******************** Show/Hide functionality **********************/
+/******************** Show/Hide and Comment/Rating functionality **********************/
 	
 	$scope.getInstructor = function() {
 		let instructor = $("#instructorSelect").val();
@@ -49,6 +51,8 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.selectedInstructor = true;
 		$scope.instructor = $("#instructorSelect").val();
 		console.log("selectInstructor", $scope.instructor);
+		$scope.showEditDelete = false;
+
 	};
 
 	$scope.activateRate = function() {
@@ -60,6 +64,35 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.rateForm = false;
 		$scope.addNewRating();
 		$scope.selectedInstructor = true;
+		$scope.hideRatingButton = true;
+		$scope.showEditDelete = true;
+	};
+
+	$scope.cancelRating = function() {
+		$scope.rateForm = false;
+		$scope.selectedInstructor = true;
+		//$scope.hideRatingButton = true;
+		//$scope.showEditDelete = true;
+	};
+
+	$scope.editRating = function() {
+		let currentUser = AuthFactory.getUser();
+		//console.log("edit test", $scope.ratings[currentUser].comment);
+		//console.log($scope.ratings);
+		angular.forEach($scope.ratings, function(value) {
+			//console.log(value);
+			if (value.uid === currentUser) {
+				//console.log("user found", value.comment);
+				$scope.editComment = value.comment;
+				$scope.editRating = value.rating;
+			}	
+		});
+		selectedInstructor = false;
+		$scope.editForm = true;
+	};
+
+	$scope.saveEditedRating = function() {
+
 	};
 
 	/******************** End Show/Hide functionality **********************/
@@ -82,7 +115,8 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.newRating.iid = $scope.getInstructor();
 		DatabaseFactory.postNewRating($scope.newRating)
 		.then(function(response) {
-			console.log("response", response);
+			console.log("response", response.name);
+			console.log("newRating", $scope.newRating);
 		})
 		//dynamically adds new rating to the dom
 		.then(function() {
@@ -91,6 +125,24 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 				$scope.ratings = ratingsArray;
 			});
 		});
+	};
+
+	$scope.deleteRating = function() {
+		let currentUser = AuthFactory.getUser();
+		angular.forEach($scope.ratings, function(value) {
+			//console.log(value);
+			if (value.uid === currentUser) {
+				console.log("user found", value.id);
+				DatabaseFactory.deleteRating(value.id)
+				.then(function() {
+					DatabaseFactory.getRatings()
+					.then(function(ratingsArray) {
+						$scope.ratings = ratingsArray;
+					});
+				});
+			}	
+		});
+
 	};
 });
 

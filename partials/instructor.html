@@ -17,8 +17,13 @@
 		<h2>{{instructor}}'s Profile</h2>
 	</div>
 	<div class="rate center-align">
-		<button class="btn waves-effect waves-light" ng-click="activateRate()">Add Your Rating</button>
+		<button class="btn waves-effect waves-light" ng-click="activateRate()" ng-hide="hideRatingButton">Add Your Rating</button>
+		<button class="btn waves-effect waves-light" ng-show="showEditDelete" ng-click="editRating()">Edit Your Rating</button>
+		<button class="btn waves-effect waves-light" ng-show="showEditDelete" ng-click="deleteRating()">Delete Your Rating</button>
+
 </div>
+	
+	<!-- User comments and ratings -->
 	<div class="row">
 		<div class="col s8 left" ng-repeat="thingy in ratings | limitTo:5">
 			<div class="divider"></div>
@@ -26,9 +31,11 @@
 			<h5>{{thingy.comment}}</h5>
 			<div class="divider"></div>
 		</div>
+
+		<!-- Average Rating -->
 		<div class="col s4 right">
 			<h3>Overall Rating:</h3>
-			<h2>{{totalRating}}</h2>
+			<h2>{{totalRating | number: 1}}</h2>
 		</div>
 	</div>
 	
@@ -55,14 +62,6 @@
 	  
 	    <input name="rate" type="radio" id="5" ng-model="newRating.rating" ng-value="5"/>
 	    <label for="5">5</label>
-
-	    	<!-- <label ng-repeat="rating in ratings" for="{{rating}}">
-       {{ratings}}
-       <input type="radio" 
-       				ng-model="newRating.rating" 
-       				ng-value="rating"
-       				name="rate">
-      </label> -->
 	  </div>
 	 </form>
 	<div class="row">
@@ -73,5 +72,42 @@
   </div>
   <div class="row center-align">
   	<button class="btn waves-effect waves-light" ng-click="submitRating()">Submit</button>
+  	<button class="btn waves-effect waves-light" ng-click="cancelRating()">Cancel</button>
   </div>
 </div>
+
+<!--Hidden edit form -->
+<div ng-show="editForm">
+	<form class="form-group">
+		<div class="radioGroup">
+	    <input name="rate" type="radio" id="0" ng-model="editRating" ng-value="0"/>
+	    <label for="0">0</label>
+	  
+	    <input name="rate" type="radio" id="1" ng-model="editRating" ng-value="1"/>
+	    <label for="1">1</label>
+	  
+	    <input name="rate" type="radio" id="2" ng-model="editRating" ng-value="2"/>
+	    <label for="2">2</label>
+	  
+	    <input name="rate" type="radio" id="3" ng-model="editRating" ng-value="3"/>
+	    <label for="3">3</label>
+	  
+	    <input name="rate" type="radio" id="4" ng-model="editRating" ng-value="4"/>
+	    <label for="4">4</label>
+	  
+	    <input name="rate" type="radio" id="5" ng-model="editRating" ng-value="5"/>
+	    <label for="5">5</label>
+	  </div>
+	 </form>
+	<div class="row">
+    <div class="input-field col s12">
+      <textarea id="textarea1" class="materialize-textarea" ng-model="editComment"></textarea>
+      <label for="textarea1" placeholder="Type here...">Comments:</label>
+    </div>
+  </div>
+  <div class="row center-align">
+  	<button class="btn waves-effect waves-light" ng-click="saveEditedRating()">Save</button>
+  	<button class="btn waves-effect waves-light" ng-click="cancelRating()">Cancel</button>
+  </div>
+</div>
+ 

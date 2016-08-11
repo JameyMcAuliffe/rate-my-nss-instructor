@@ -17,6 +17,8 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
+
+
 	let getRatings = function() {
 		let ratings = [];
 		return $q(function(resolve, reject) {
@@ -36,7 +38,21 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
-	return {postNewRating, getRatings};
+	let deleteRating = function (id) {
+    return $q(function(resolve, reject) {
+      $http.delete(
+        `${FirebaseURL}/users/${id}.json`
+      )
+      .success(function() {
+        resolve();
+      })
+      .error(function(error) {
+        reject(error);
+      });
+    });
+  };
+
+	return {postNewRating, getRatings, deleteRating};
 });
 
 
