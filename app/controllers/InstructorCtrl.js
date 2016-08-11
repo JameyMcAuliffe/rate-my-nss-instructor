@@ -23,19 +23,7 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.totalRating = total / ratingsArray.length;
 		console.log("totalRating", $scope.totalRating);
 	});
-
-	// DatabaseFactory.getRatings()
-	// .then(function(ratingsArray) {
-	// 	let total = 0;
-	// 	angular.forEach(ratingsArray, function(value) {
-	// 		total = total + value.rating;
-	// 	});
-	// 	console.log("total", total);
-	// 	$scope.totalRating = total / ratingsArray.length;
-	// 	console.log("totalRating", $scope.totalRating);
-	// });
 	
-
 	//may not be needed
 	$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
 
@@ -76,23 +64,27 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	};
 
 	$scope.editRating = function() {
-		let currentUser = AuthFactory.getUser();
-		//console.log("edit test", $scope.ratings[currentUser].comment);
-		//console.log($scope.ratings);
-		angular.forEach($scope.ratings, function(value) {
-			//console.log(value);
-			if (value.uid === currentUser) {
-				//console.log("user found", value.comment);
-				$scope.editComment = value.comment;
-				$scope.editRating = value.rating;
-			}	
-		});
-		selectedInstructor = false;
+		// let currentUser = AuthFactory.getUser();
+		// //console.log("edit test", $scope.ratings[currentUser].comment);
+		// //console.log($scope.ratings);
+		// angular.forEach($scope.ratings, function(value) {
+		// 	//console.log(value);
+		// 	if (value.uid === currentUser) {
+		// 		//console.log("user found", value.comment);
+		// 		$scope.editComment = value.comment;
+		// 		$scope.editRating = value.rating;
+		// 	}	
+		// });
+		$scope.selectedInstructor = false;
 		$scope.editForm = true;
 	};
 
 	$scope.saveEditedRating = function() {
-
+		$scope.deleteRating();
+		$scope.addNewRating();
+		$scope.selectedInstructor = true;
+		$scope.hideRatingButton = true;
+		$scope.showEditDelete = true;
 	};
 
 	/******************** End Show/Hide functionality **********************/
@@ -129,8 +121,9 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 
 	$scope.deleteRating = function() {
 		let currentUser = AuthFactory.getUser();
+
+		//finds rating object in the array that matches user's id, then reloads dom
 		angular.forEach($scope.ratings, function(value) {
-			//console.log(value);
 			if (value.uid === currentUser) {
 				console.log("user found", value.id);
 				DatabaseFactory.deleteRating(value.id)
@@ -142,8 +135,9 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 				});
 			}	
 		});
-
 	};
+
+
 });
 
 

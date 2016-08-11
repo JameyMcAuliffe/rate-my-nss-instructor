@@ -80,28 +80,28 @@
 <div ng-show="editForm">
 	<form class="form-group">
 		<div class="radioGroup">
-	    <input name="rate" type="radio" id="0" ng-model="editRating" ng-value="0"/>
+	    <input name="rate" type="radio" id="0" ng-model="newRating.rating" ng-value="0"/>
 	    <label for="0">0</label>
 	  
-	    <input name="rate" type="radio" id="1" ng-model="editRating" ng-value="1"/>
+	    <input name="rate" type="radio" id="1" ng-model="newRating.rating" ng-value="1"/>
 	    <label for="1">1</label>
 	  
-	    <input name="rate" type="radio" id="2" ng-model="editRating" ng-value="2"/>
+	    <input name="rate" type="radio" id="2" ng-model="newRating.rating" ng-value="2"/>
 	    <label for="2">2</label>
 	  
-	    <input name="rate" type="radio" id="3" ng-model="editRating" ng-value="3"/>
+	    <input name="rate" type="radio" id="3" ng-model="newRating.rating" ng-value="3"/>
 	    <label for="3">3</label>
 	  
-	    <input name="rate" type="radio" id="4" ng-model="editRating" ng-value="4"/>
+	    <input name="rate" type="radio" id="4" ng-model="newRating.rating" ng-value="4"/>
 	    <label for="4">4</label>
 	  
-	    <input name="rate" type="radio" id="5" ng-model="editRating" ng-value="5"/>
+	    <input name="rate" type="radio" id="5" ng-model="newRating.rating" ng-value="5"/>
 	    <label for="5">5</label>
 	  </div>
 	 </form>
 	<div class="row">
     <div class="input-field col s12">
-      <textarea id="textarea1" class="materialize-textarea" ng-model="editComment"></textarea>
+      <textarea id="textarea1" class="materialize-textarea" ng-model="newRating.comment"></textarea>
       <label for="textarea1" placeholder="Type here...">Comments:</label>
     </div>
   </div>
