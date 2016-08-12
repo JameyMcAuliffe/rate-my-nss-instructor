@@ -1,38 +1,41 @@
-<div class="row center-align">
-	<button class="btn waves-effect waves-light" ng-click="studentsButtonClick()">Students</button>
+<div class="splash container">
+	<div class="row center-align studentsButton">
+		<button class="btn waves-effect waves-light" ng-click="studentsButtonClick()">Students</button>
+	</div>
+
+	<!-- new user/login buttons -->
+	<div class="row center-align" ng-show="login_register">
+	  <button class="btn waves-effect waves-light" ng-click="activateRegister()">New User?</button>
+	  <button class="btn waves-effect waves-light" ng-click="activateLogin()">Returning User</button>
+	</div>
+
+	<!-- registration show/hide -->
+	<form ng-show="registerMode">
+		<div class="input-field">
+		  <input id="email" type="email" class="validate" ng-model="registerEmail">
+		  <label for="email">Email</label>
+		</div>
+		<div class="input-field">
+		  <input id="password" type="password" class="validate" ng-model="registerPassword">
+		  <label for="password">Password</label>
+		</div>
+		<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="register()">Register</button></div></div>
+	</form>
+
+	<!-- login show/hide -->
+	<form ng-show="loginMode">
+		<div class="input-field">
+		  <input id="email" type="email" class="validate" ng-model="loginEmail">
+		  <label for="email">Email</label>
+		</div>
+		<div class="input-field">
+		  <input id="password" type="password" class="validate" ng-model="loginPassword">
+		  <label for="password">Password</label>
+		</div>
+		<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="login()">Login</button></div></div>
+	</form>
 </div>
 
-<!-- new user/login buttons -->
-<div class="row center-align" ng-show="login_register">
-  <button class="btn waves-effect waves-light" ng-click="activateRegister()">New User?</button>
-  <button class="btn waves-effect waves-light" ng-click="activateLogin()">Returning User</button>
-</div>
-
-<!-- registration show/hide -->
-<form ng-show="registerMode">
-	<div class="input-field">
-	  <input id="email" type="email" class="validate" ng-model="registerEmail">
-	  <label for="email">Email</label>
-	</div>
-	<div class="input-field">
-	  <input id="password" type="password" class="validate" ng-model="registerPassword">
-	  <label for="password">Password</label>
-	</div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="register()">Register</button></div></div>
-</form>
-
-<!-- login show/hide -->
-<form ng-show="loginMode">
-	<div class="input-field">
-	  <input id="email" type="email" class="validate" ng-model="loginEmail">
-	  <label for="email">Email</label>
-	</div>
-	<div class="input-field">
-	  <input id="password" type="password" class="validate" ng-model="loginPassword">
-	  <label for="password">Password</label>
-	</div>
-	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="login()">Login</button></div></div>
-</form>
 
 
 
