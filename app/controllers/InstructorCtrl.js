@@ -59,22 +59,10 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	$scope.cancelRating = function() {
 		$scope.rateForm = false;
 		$scope.selectedInstructor = true;
-		//$scope.hideRatingButton = true;
-		//$scope.showEditDelete = true;
+		$scope.editForm = false;
 	};
 
 	$scope.editRating = function() {
-		// let currentUser = AuthFactory.getUser();
-		// //console.log("edit test", $scope.ratings[currentUser].comment);
-		// //console.log($scope.ratings);
-		// angular.forEach($scope.ratings, function(value) {
-		// 	//console.log(value);
-		// 	if (value.uid === currentUser) {
-		// 		//console.log("user found", value.comment);
-		// 		$scope.editComment = value.comment;
-		// 		$scope.editRating = value.rating;
-		// 	}	
-		// });
 		$scope.selectedInstructor = false;
 		$scope.editForm = true;
 	};
@@ -85,6 +73,7 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.selectedInstructor = true;
 		$scope.hideRatingButton = true;
 		$scope.showEditDelete = true;
+		$scope.editForm = false;
 	};
 
 	/******************** End Show/Hide functionality **********************/
@@ -135,6 +124,8 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 				});
 			}	
 		});
+		$scope.hideRatingButton = false;
+		$scope.showEditDelete = false;
 	};
 
 
