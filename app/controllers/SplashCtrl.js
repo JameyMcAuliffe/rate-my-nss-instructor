@@ -11,6 +11,7 @@ app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 	// 	console.log("studentsButtonClick");
 	// };
 
+
 	//ng-click function for new user button
 	$scope.activateRegister = function() {
 
@@ -34,6 +35,7 @@ app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 		AuthFactory.signIn($scope.loginEmail, $scope.loginPassword);
 		$location.url("/instructor");
 		console.log("user logged in");
+		Materialize.toast('Welcome Back!', 3000, 'rounded');
 	};
 
 	//ng-click function for register button
@@ -41,6 +43,7 @@ app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 		AuthFactory.createAccount($scope.registerEmail, $scope.registerPassword);
 		$location.url("/instructor");
 		console.log("new user registered");
+		Materialize.toast('Welcome!', 3000, 'rounded');
 	};
 
 	$scope.cancelRegister = function() {

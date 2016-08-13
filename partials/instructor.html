@@ -1,5 +1,5 @@
 
-<form>
+<!-- <form>
 	<div class="input-field">
 		<select id="instructorSelect" class="form-control" ng-model="value">
 			<option selected disabled value="">Choose your instructor</option>
@@ -9,12 +9,12 @@
 		<label>Instructor Select</label>
 	</div>
 	<div class="row"><div class="center-align"><button class="btn waves-effect waves-light" ng-click="selectInstructor()">Select</button></div></div>
-</form>
+</form> -->
 
 <!-- Instructor's profile -->
-<div class="row" ng-show="selectedInstructor">
+<div class="row" ng-hide="hideJoePage">
 	<div class="center-align">
-		<h2>{{instructor}}'s Profile</h2>
+		<h2>Rate Joe</h2>
 	</div>
 	<div class="rate center-align">
 		<button class="btn waves-effect waves-light" ng-click="activateRate()" ng-hide="hideRatingButton">Add Your Rating</button>
