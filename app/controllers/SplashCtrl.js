@@ -4,23 +4,25 @@
 app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 
 	//ng-click function for the Students button
-	$scope.studentsButtonClick = function() {
+	// $scope.studentsButtonClick = function() {
 
-		//sets value of login_register to true, showing the new/returning user buttons
-		$scope.login_register = true;		
-		console.log("studentsButtonClick");
-	};
+	// 	//sets value of login_register to true, showing the new/returning user buttons
+	// 	$scope.login_register = true;		
+	// 	console.log("studentsButtonClick");
+	// };
 
 	//ng-click function for new user button
 	$scope.activateRegister = function() {
 
 		//sets value of registerMode to true, showing the registration form
+		$scope.login_register = true;
 		$scope.registerMode = true;
 		$scope.loginMode = false;
 	};	
 
 	//ng-click function for returning user button
 	$scope.activateLogin = function() {
+		$scope.login_register = true;
 		$scope.registerMode = false;
 
 		//sets loginMode to true, showing the login form
@@ -39,6 +41,16 @@ app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 		AuthFactory.createAccount($scope.registerEmail, $scope.registerPassword);
 		$location.url("/instructor");
 		console.log("new user registered");
+	};
+
+	$scope.cancelRegister = function() {
+		$scope.login_register = false;
+		$scope.registerMode = false;
+	};
+
+	$scope.cancelLogin = function() {
+		$scope.login_register = false;
+		$scope.loginMode = false;
 	};
 
 	//$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];

@@ -84,7 +84,7 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	$scope.hideOlderRatings = function() {
 		$scope.olderRatings = false;
 		$scope.hideOlderRatingsButton = false;
-	}
+	};
 
 	/******************** End Show/Hide functionality **********************/
 
