@@ -3,9 +3,9 @@
 app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, AuthFactory) {
 
 	//needed to show select options
-	$(document).ready(function() {
-  	$('select').material_select();
-	});
+	// $(document).ready(function() {
+ //  	$('select').material_select();
+	// });
 
 	//creates an array of rating objects which are used to populate the dom
 	DatabaseFactory.getRatings()
@@ -25,52 +25,52 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 	});
 	
 	//may not be needed
-	$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
+	//$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
 
 /******************** Show/Hide and Comment/Rating functionality **********************/
 	
-	$scope.getInstructor = function() {
-		let instructor = $("#instructorSelect").val();
-		console.log(instructor);
-		return instructor;
-	};
+	// $scope.getInstructor = function() {
+	// 	let instructor = $("#instructorSelect").val();
+	// 	console.log(instructor);
+	// 	return instructor;
+	// };
 
-	$scope.selectInstructor = function() {
-		$scope.selectedInstructor = true;
-		$scope.instructor = $("#instructorSelect").val();
-		console.log("selectInstructor", $scope.instructor);
-		$scope.showEditDelete = false;
+	// $scope.selectInstructor = function() {
+	// 	$scope.selectedInstructor = true;
+	// 	$scope.instructor = $("#instructorSelect").val();
+	// 	console.log("selectInstructor", $scope.instructor);
+	// 	$scope.showEditDelete = false;
 
-	};
+	// };
 
 	$scope.activateRate = function() {
 		$scope.rateForm = true;
-		$scope.selectedInstructor = false;
+		$scope.hideJoePage = true;
 	};
 
 	$scope.submitRating = function() {
 		$scope.rateForm = false;
 		$scope.addNewRating();
-		$scope.selectedInstructor = true;
+		$scope.hideJoePage = false;
 		$scope.hideRatingButton = true;
 		$scope.showEditDelete = true;
 	};
 
 	$scope.cancelRating = function() {
 		$scope.rateForm = false;
-		$scope.selectedInstructor = true;
+		$scope.hideJoePage = false;
 		$scope.editForm = false;
 	};
 
 	$scope.editRating = function() {
-		$scope.selectedInstructor = false;
+		$scope.hideJoePage = true;
 		$scope.editForm = true;
 	};
 
 	$scope.saveEditedRating = function() {
 		$scope.deleteRating();
 		$scope.addNewRating();
-		$scope.selectedInstructor = true;
+		$scope.hideJoePage = false;
 		$scope.hideRatingButton = true;
 		$scope.showEditDelete = true;
 		$scope.editForm = false;
@@ -103,7 +103,7 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 
 		//gets user's uid from AuthFactory getUser function
 		$scope.newRating.uid = AuthFactory.getUser();
-		$scope.newRating.iid = $scope.getInstructor();
+		//$scope.newRating.iid = $scope.getInstructor();
 		DatabaseFactory.postNewRating($scope.newRating)
 		.then(function(response) {
 			console.log("response", response.name);
