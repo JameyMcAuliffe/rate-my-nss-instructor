@@ -12,14 +12,15 @@
 </form> -->
 
 <!-- Instructor's profile -->
+<div class="instructor-profile">
 <div class="row" ng-hide="hideJoePage">
 	<div class="center-align">
-		<h2>Rate Joe</h2>
+		<h4>What they're saying about Joe...</h4>
 	</div>
 	<div class="rate center-align">
-		<button class="btn waves-effect waves-light" ng-click="activateRate()" ng-hide="hideRatingButton">Add Your Rating</button>
-		<button class="btn waves-effect waves-light" ng-show="showEditDelete" ng-click="editRating()">Edit Your Rating</button>
-		<button class="btn waves-effect waves-light" ng-show="showEditDelete" ng-click="deleteRating()">Delete Your Rating</button>
+		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="activateRate()" ng-hide="hideRatingButton">Add Your Rating</button>
+		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-show="showEditDelete" ng-click="editRating()">Edit Your Rating</button>
+		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-show="showEditDelete" ng-click="deleteRating()">Delete Your Rating</button>
 
 </div>
 	
@@ -37,8 +38,8 @@
 			<div class="divider"></div>
 		</div>
 		<div class="col s8 left">
-			<button class="btn waves-effect waves-light" ng-hide="hideOlderRatingsButton" ng-click="showOlderRatings()">Show Older Ratings</button>
-			<button class="btn waves-effect waves-light" ng-show="olderRatings" ng-click="hideOlderRatings()">Hide Older Ratings</button>
+			<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-hide="hideOlderRatingsButton" ng-click="showOlderRatings()">Show Older Ratings</button>
+			<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-show="olderRatings" ng-click="hideOlderRatings()">Hide Older Ratings</button>
 			<div ng-show="olderRatings" ng-repeat="thingy in ratings | limitTo: 10 | limitTo: -5">
 				<div class="divider"></div>
 				<h5>Rating: {{thingy.rating}}/5</h5>
@@ -80,8 +81,8 @@
     </div>
   </div>
   <div class="row center-align">
-  	<button class="btn waves-effect waves-light" ng-click="submitRating()">Submit</button>
-  	<button class="btn waves-effect waves-light" ng-click="cancelRating()">Cancel</button>
+  	<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="submitRating()">Submit</button>
+  	<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="cancelRating()">Cancel</button>
   </div>
 </div>
 
@@ -115,8 +116,9 @@
     </div>
   </div>
   <div class="row center-align">
-  	<button class="btn waves-effect waves-light" ng-click="saveEditedRating()">Save</button>
-  	<button class="btn waves-effect waves-light" ng-click="cancelRating()">Cancel</button>
+  	<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="saveEditedRating()">Save</button>
+  	<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="cancelRating()">Cancel</button>
   </div>
+</div>
 </div>
  
