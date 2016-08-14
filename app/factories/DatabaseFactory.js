@@ -17,8 +17,6 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
-
-
 	let getRatings = function() {
 		let ratings = [];
 		return $q(function(resolve, reject) {
@@ -31,6 +29,25 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 					});
 				}
 				resolve(ratings);
+			})
+			.error(function(error) {
+				reject(error);
+			});
+		});
+	};
+
+	let getEvents = function() {
+		let events = [];
+		return $q(function(resolve, reject) {
+			$http.get(`${FirebaseURL}/events.json`)
+			.success(function(eventObject) {
+				if(eventObject) {
+					Object.keys(eventObject).forEach(function(key) {
+						eventObject[key].id = key;
+						events.unshift(eventObject[key]);
+					});
+				}
+				resolve(events);
 			})
 			.error(function(error) {
 				reject(error);
@@ -52,7 +69,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-	return {postNewRating, getRatings, deleteRating};
+	return {postNewRating, getRatings, deleteRating, getEvents};
 });
 
 
