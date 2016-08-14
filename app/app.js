@@ -24,5 +24,9 @@ app.config(function($routeProvider, FBCreds) {
 	.when('/instructor', {
       templateUrl: "partials/instructor.html",
       controller: "InstructorCtrl"
+   })
+  .when('/community', {
+      templateUrl: "partials/community.html",
+      controller: "CommCtrl"
    });
 });
