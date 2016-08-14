@@ -1,0 +1,29 @@
+<div class="community-view">
+	<!-- opening div -->
+	
+	<div class="row">
+		<h3>What are we dewing...</h3>
+	</div>
+	<div class="row" ng-show="showNoEvents">
+		<h4>There are no scheduled events right now</h4>
+	</div>
+
+	<!-- Add Events -->
+	<div class="add-event center-align">
+		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="activateEvents()">Add Event</button>
+  </div>
+
+  <!-- User Events -->
+  <div class="row user-events">
+  	<div class col s8 offset-s2 ng-repeat="thingy in events">
+  		<div class="divider"></div>
+				<h5>When: {{thingy.when}}</h5>
+				<h5>Where: {{thingy.where}}</h5>
+				<h6>Details: {{thingy.comments.comment}}</h6>
+				<!-- <h6>Posted by: {{events.}}</h6> -->
+				<div class="divider"></div>
+  	</div>
+  </div>
+
+  <!-- closing div -->
+</div>

@@ -23,26 +23,9 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.totalRating = total / ratingsArray.length;
 		console.log("totalRating", $scope.totalRating);
 	});
-	
-	//may not be needed
-	//$scope.instructors = ["Joe Shepherd", "Steve Brownlee"];
 
 /******************** Show/Hide and Comment/Rating functionality **********************/
 	
-	// $scope.getInstructor = function() {
-	// 	let instructor = $("#instructorSelect").val();
-	// 	console.log(instructor);
-	// 	return instructor;
-	// };
-
-	// $scope.selectInstructor = function() {
-	// 	$scope.selectedInstructor = true;
-	// 	$scope.instructor = $("#instructorSelect").val();
-	// 	console.log("selectInstructor", $scope.instructor);
-	// 	$scope.showEditDelete = false;
-
-	// };
-
 	$scope.activateRate = function() {
 		$scope.rateForm = true;
 		$scope.hideJoePage = true;
@@ -137,8 +120,6 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 		$scope.hideRatingButton = false;
 		$scope.showEditDelete = false;
 	};
-
-
 });
 
 
