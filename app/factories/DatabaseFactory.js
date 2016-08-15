@@ -17,6 +17,21 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
+	let postNewThread = function(newThread) {
+		return $q(function(resolve, reject) {
+			$http.post(
+				`${FirebaseURL}/threads.json`,
+				JSON.stringify(newThread)
+			)
+			.success(function(ObjFromFirebase) {
+				resolve(ObjFromFirebase);
+			})
+			.error(function(error) {
+				reject(error);
+			});
+		});
+	};
+
 	let getRatings = function() {
 		let ratings = [];
 		return $q(function(resolve, reject) {
@@ -88,7 +103,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-	return {postNewRating, getRatings, deleteRating, getThreads};
+	return {postNewRating, getRatings, deleteRating, getThreads, postNewThread};
 });
 
 
