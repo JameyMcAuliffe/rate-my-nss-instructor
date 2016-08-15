@@ -5,7 +5,7 @@
 		<h3>Cup o' Joe</h3>
 	</div>
 	<div class="row center-align">
-		<h4>Message board to discuss all things Joe</h4>
+		<h5>Message board to discuss all things Joe</h5>
 	</div>
 
 	<!-- Add Threads -->
@@ -18,7 +18,7 @@
   	<div class="col s12" ng-repeat="thingy in threads">
   		<h6></h6>
   		<div class="divider"></div>
-  			<a href="http://localhost:8080/?#/community/thread" ng-click="getThreadId()">{{thingy.title}}</a>
+  			<a class="selectedThread" href="http://localhost:8080/?#/community/thread" value="{{threadId}}" ng-click="getThreadId()">{{thingy.title}}</a>
   			<h6>Posted by: {{thingy.user}}</h6>
   		<div class="divider"></div>
   	</div>
