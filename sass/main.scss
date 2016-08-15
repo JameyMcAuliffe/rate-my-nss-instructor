@@ -6,13 +6,12 @@
 }
 
 .splash {
-	width: 100%;
+	min-width: 100% !important;
 	height: 100%;
 	position: absolute; 
-	top: 0; 
-	right: 0;
-	left: 0;
-	background: url("../img/splash-background.jpg");
+	top: 0;
+	background: url("../img/splash-background.jpg") center center fixed;
+	background-size: cover;
 	margin-top: 64px;
 }
 
@@ -28,6 +27,7 @@
 .community-view {
 	width: 100%;
 	height: 100%;
+	overflow: auto;
 	position: absolute; 
 	top: 0; 
 	left: 0;
@@ -52,6 +52,25 @@
 	border-radius: 50%;
 	border: 1px solid black;
 }
+
+.joe-header {
+	padding-top: 40px;
+}
+
+.rate {
+	padding-top: 20px;
+}
+
+  body {
+    display: flex;
+    min-height: 120vh;
+    flex-direction: column;
+  }
+
+  .main {
+    flex: 1 0 auto;
+  }
+
 
 
 
