@@ -62,7 +62,7 @@ app.controller("CommCtrl", function($scope, DatabaseFactory, $location, AuthFact
 		$scope.hideThreads = false;
 	};
 
-	$scope.getThreadPosts = function() {
-		
+	$scope.getSelectedPost = function() {
+		console.log($scope.threadId.originalPost);
 	};
 });

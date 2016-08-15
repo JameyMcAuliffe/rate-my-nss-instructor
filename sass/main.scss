@@ -10,6 +10,7 @@
 	height: 100%;
 	position: absolute; 
 	top: 0; 
+	right: 0;
 	left: 0;
 	background: url("../img/splash-background.jpg");
 	margin-top: 64px;
@@ -39,6 +40,17 @@
 	font-style: italic;
 	font-family: Georgia, serif;
 	border-left: 10px solid #223CA6;
+}
+
+.ratings-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+}
+
+.comments-div {
+	margin-left: 30px;
 }
 
 

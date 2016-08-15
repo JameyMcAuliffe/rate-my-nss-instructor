@@ -26,17 +26,17 @@
 		<!-- User comments and ratings -->
 		<div class="row">
 			<!-- Average Rating -->
-			<div class="col s4 right">
+			<div class="ratings-div col s4 right">
 				<h3>Overall Rating:</h3>
-				<h2>{{totalRating | number: 1}}</h2>
+				<h1 class="total-rating">{{totalRating | number: 1}}</h1>
 			</div> 
-			<div class="col s8 left" ng-repeat="thingy in ratings | limitTo:5">
+			<div class="col s7 offset-s1" ng-repeat="thingy in ratings | limitTo:5">
 				<div class="divider"></div>
 				<h5>Rating: {{thingy.rating}}/5</h5>
 				<h5>{{thingy.comment}}</h5>
 				<div class="divider"></div>
 			</div>
-			<div class="col s8 left">
+			<div class="col s7 offset-s1">
 				<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-hide="hideOlderRatingsButton" ng-click="showOlderRatings()">Show Older Ratings</button>
 				<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-show="olderRatings" ng-click="hideOlderRatings()">Hide Older Ratings</button>
 				<div ng-show="olderRatings" ng-repeat="thingy in ratings | limitTo: 10 | limitTo: -5">
