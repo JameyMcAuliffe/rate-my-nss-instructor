@@ -1,8 +1,8 @@
 <div class=thread-view>
 	<!-- opening div -->
 
-	<div class="row center-align">
-		<h1>thread view</h1>
+	<div class="row">
+
 
 		<div class="row selected-thread">
   	<div class="col s10 offset-s1">
@@ -12,6 +12,15 @@
   			<h6>Posted by: {{thread.user}}</h6>
   			<h5>{{thread.originalPost}}</h5>
   		<div class="divider"></div>
+  			  <!-- Dynamically added posts from firebase -->
+		  <div class="row user-posts">
+		  	<div class="col s10" ng-repeat="thingy in posts">
+		  		<div class="divider"></div>
+		  			<h6>Posted by: {{thingy.user}}</h6>
+		  			<h5>{{thingy.post}}</h5>
+		  		<div class="divider"></div>
+		  	</div>
+		  </div>
   	</div>
   </div>
   </div>
@@ -20,14 +29,14 @@
 	<div class="row">
 		<form class="col s8 offset-s2">
 			<div class="input-field col s8 offset-s2">
-        <textarea id="textarea4" class="materialize-textarea"></textarea>
+        <textarea id="textarea4" class="materialize-textarea" ng-model="newPost.post"></textarea>
         <label for="textarea4">Add Post:</label>
        </div>
 		</form>
 	</div>
 
 	<div class="add-post center-align">
-		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="">Post</button>
+		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="addNewPost()">Post</button>
   </div>
 	
 
