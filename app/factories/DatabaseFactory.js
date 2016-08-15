@@ -70,6 +70,27 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
+		let getThread = function(id) {
+		let threads = [];
+		return $q(function(resolve, reject) {
+			$http.get(`${FirebaseURL}/threads/${id}.json`)
+			.success(function(threadObject) {
+				// if(threadObject) {
+				// 	Object.keys(threadObject).forEach(function(key) {
+				// 		threadObject[key].id = key;
+				// 		threads.unshift(threadObject[key]);
+				// 	});
+				// }
+				resolve(threadObject);
+			})
+			.error(function(error) {
+				reject(error);
+			});
+		});
+	};
+
+
+
 
 	let deleteRating = function (id) {
     return $q(function(resolve, reject) {
@@ -85,7 +106,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-	return {postNewRating, getRatings, deleteRating, getThreads, postNewThread};
+	return {postNewRating, getRatings, deleteRating, getThreads, postNewThread, getThread};
 });
 
 

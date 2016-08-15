@@ -1,1 +1,35 @@
-<h1>thread view</h1>
+<div class=thread-view>
+	<!-- opening div -->
+
+	<div class="row center-align">
+		<h1>thread view</h1>
+
+		<div class="row selected-thread">
+  	<div class="col s10 offset-s1">
+  		<h4>{{thread.title}}</h4>
+  		<h6></h6>
+  		<div class="divider"></div>
+  			<h6>Posted by: {{thread.user}}</h6>
+  			<h5>{{thread.originalPost}}</h5>
+  		<div class="divider"></div>
+  	</div>
+  </div>
+  </div>
+
+		<!-- Add Posts -->
+	<div class="row">
+		<form class="col s8 offset-s2">
+			<div class="input-field col s8 offset-s2">
+        <textarea id="textarea4" class="materialize-textarea"></textarea>
+        <label for="textarea4">Add Post:</label>
+       </div>
+		</form>
+	</div>
+
+	<div class="add-post center-align">
+		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="">Post</button>
+  </div>
+	
+
+	<!-- closing div -->
+</div>

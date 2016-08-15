@@ -1,6 +1,15 @@
 "use strict";
 
-app.controller("CommCtrl", function($scope, DatabaseFactory, $routeParams, AuthFactory) {
+app.controller("CommCtrl", function($scope, DatabaseFactory, AuthFactory) {
+
+	if (!AuthFactory.getUser()) {
+		$scope.hideThreads = true;
+		$scope.showThreads = false;
+	}
+	else {
+		$scope.hideThreads = false;
+		$scope.showThreads = true;
+	}
 
 	//creates an array of thread objects which are used to populate the dom
 	DatabaseFactory.getThreads()
@@ -9,15 +18,15 @@ app.controller("CommCtrl", function($scope, DatabaseFactory, $routeParams, AuthF
 		//array holding thread objects
 		$scope.threads = threadsArray;
 		console.log("threadsArray", $scope.threads);
-		$scope.threadId = "";
-		$scope.idArray = [];
+		//$scope.threadId = "";
+		//$scope.idArray = [];
 
-		//loops through threadsArray and pushes each threadId into idArray
-		angular.forEach(threadsArray, function(value) {
-			$scope.threadId = value.id;
-			$scope.idArray.push($scope.threadId);
-		});
-		console.log("idArray", $scope.idArray);
+		// loops through threadsArray and pushes each threadId into idArray
+		// angular.forEach(threadsArray, function(value) {
+		// 	$scope.threadId = value.id;
+		// 	$scope.idArray.push($scope.threadId);
+		// });
+		// console.log("idArray", $scope.idArray);
 	});
 
 	/************** Show/Hide Functionality ****************/
@@ -64,6 +73,6 @@ app.controller("CommCtrl", function($scope, DatabaseFactory, $routeParams, AuthF
 	};
 
 	$scope.getSelectedThread = function(id) {
-		console.log(id);
+		console.log("threadId", id);
 	};
 });
