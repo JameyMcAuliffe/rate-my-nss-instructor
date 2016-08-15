@@ -32,6 +32,20 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
+	let addPost = function(newPost, id) {
+		return $q(function(resolve, reject) {
+			$http.post(
+				`${FirebaseURL}/threads/${id}/posts.json`, newPost
+			)
+			.success(function(ObjFromFirebase) {
+				resolve(ObjFromFirebase);
+			})
+			.error(function(error) {
+				reject(error);
+			});
+		});
+	};
+
 	let getRatings = function() {
 		let ratings = [];
 		return $q(function(resolve, reject) {
@@ -75,12 +89,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		return $q(function(resolve, reject) {
 			$http.get(`${FirebaseURL}/threads/${id}.json`)
 			.success(function(threadObject) {
-				// if(threadObject) {
-				// 	Object.keys(threadObject).forEach(function(key) {
-				// 		threadObject[key].id = key;
-				// 		threads.unshift(threadObject[key]);
-				// 	});
-				// }
+				
 				resolve(threadObject);
 			})
 			.error(function(error) {
@@ -88,8 +97,6 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 			});
 		});
 	};
-
-
 
 
 	let deleteRating = function (id) {
@@ -106,7 +113,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-	return {postNewRating, getRatings, deleteRating, getThreads, postNewThread, getThread};
+	return {postNewRating, getRatings, deleteRating, getThreads, postNewThread, getThread, addPost};
 });
 
 

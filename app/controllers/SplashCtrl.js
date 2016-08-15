@@ -3,14 +3,15 @@
 //Students button bringing up login modal
 app.controller("SplashCtrl", function($scope, $location, AuthFactory) {
 
-	//ng-click function for the Students button
-	// $scope.studentsButtonClick = function() {
-
-	// 	//sets value of login_register to true, showing the new/returning user buttons
-	// 	$scope.login_register = true;		
-	// 	console.log("studentsButtonClick");
-	// };
-
+	
+	// if(!AuthFactory.getUser()) {
+	// 	$scope.hideLogins = false;
+	// 	$scope.showLinks = false;
+	// }
+	// else {
+	// 	$scope.hideLogins = true;
+	// 	$scope.showLinks = true;
+	// }
 
 	//ng-click function for new user button
 	$scope.activateRegister = function() {
