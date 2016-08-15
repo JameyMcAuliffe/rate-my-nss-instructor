@@ -2,10 +2,6 @@
 
 app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, AuthFactory) {
 
-	//needed to show select options
-	// $(document).ready(function() {
- //  	$('select').material_select();
-	// });
 
 	//creates an array of rating objects which are used to populate the dom
 	DatabaseFactory.getRatings()

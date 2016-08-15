@@ -17,6 +17,21 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
+	let postNewThread = function(newThread) {
+		return $q(function(resolve, reject) {
+			$http.post(
+				`${FirebaseURL}/threads.json`,
+				JSON.stringify(newThread)
+			)
+			.success(function(ObjFromFirebase) {
+				resolve(ObjFromFirebase);
+			})
+			.error(function(error) {
+				reject(error);
+			});
+		});
+	};
+
 	let getRatings = function() {
 		let ratings = [];
 		return $q(function(resolve, reject) {
@@ -36,24 +51,43 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
-	let getEvents = function() {
-		let events = [];
+	let getThreads = function() {
+		let threads = [];
 		return $q(function(resolve, reject) {
-			$http.get(`${FirebaseURL}/events.json`)
-			.success(function(eventObject) {
-				if(eventObject) {
-					Object.keys(eventObject).forEach(function(key) {
-						eventObject[key].id = key;
-						events.unshift(eventObject[key]);
+			$http.get(`${FirebaseURL}/threads.json`)
+			.success(function(threadObject) {
+				if(threadObject) {
+					Object.keys(threadObject).forEach(function(key) {
+						threadObject[key].id = key;
+						threads.unshift(threadObject[key]);
 					});
 				}
-				resolve(events);
+				resolve(threads);
 			})
 			.error(function(error) {
 				reject(error);
 			});
 		});
 	};
+
+	// let getEvents = function() {
+	// 	let events = [];
+	// 	return $q(function(resolve, reject) {
+	// 		$http.get(`${FirebaseURL}/events.json`)
+	// 		.success(function(eventObject) {
+	// 			if(eventObject) {
+	// 				Object.keys(eventObject).forEach(function(key) {
+	// 					eventObject[key].id = key;
+	// 					events.unshift(eventObject[key]);
+	// 				});
+	// 			}
+	// 			resolve(events);
+	// 		})
+	// 		.error(function(error) {
+	// 			reject(error);
+	// 		});
+	// 	});
+	// };
 
 	let deleteRating = function (id) {
     return $q(function(resolve, reject) {
@@ -69,7 +103,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-	return {postNewRating, getRatings, deleteRating, getEvents};
+	return {postNewRating, getRatings, deleteRating, getThreads, postNewThread};
 });
 
 

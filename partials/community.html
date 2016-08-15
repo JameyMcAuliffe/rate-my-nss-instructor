@@ -1,29 +1,64 @@
 <div class="community-view">
 	<!-- opening div -->
 	
-	<div class="row">
-		<h3>What are we dewing...</h3>
+	<div class="row center-align">
+		<h3>Cup o' Joe</h3>
 	</div>
-	<div class="row" ng-show="showNoEvents">
-		<h4>There are no scheduled events right now</h4>
+	<div class="row center-align">
+		<h4>Message board to discuss all things Joe</h4>
 	</div>
 
-	<!-- Add Events -->
+	<!-- Add Threads -->
 	<div class="add-event center-align">
-		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="activateEvents()">Add Event</button>
+		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="showThreadForm()">Create New Thread</button>
   </div>
 
+  <!-- Threads from firebase -->
+  <div class="row user-threads" ng-hide="hideThreads">
+  	<div class="col s12" ng-repeat="thingy in threads">
+  		<h6></h6>
+  		<div class="divider"></div>
+  			<a href="http://localhost:8080/?#/community/thread" ng-click="getThreadId()">{{thingy.title}}</a>
+  			<h6>Posted by: {{thingy.user}}</h6>
+  		<div class="divider"></div>
+  	</div>
+  </div>
+
+  <!-- Hidden threads form -->
+  <div class="row" ng-show="threadForm">
+  	<form class="col s8 offset-s2">
+      <div class="row">
+        <div class="input-field col s8 offset-s2">
+          <textarea id="textarea2" class="materialize-textarea" ng-model="newThread.title"></textarea>
+          <label for="textarea2">Thread Title:</label>
+        </div>
+        <div class="input-field col s8 offset-s2">
+        	<textarea id="textarea3" class="materialize-textarea" ng-model="newThread.originalPost"></textarea>
+          <label for="textarea3">Post:</label>
+        </div>
+      </div>
+       <div class="row center-align">
+	  	<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="addNewThread()">Post</button>
+	  	<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="cancelNewThread()">Cancel</button>
+	  </div>
+    </form>
+  </div>
+
+  
+  
+
+
+
   <!-- User Events -->
-  <div class="row user-events">
+  <!-- <div class="row user-events">
   	<div class col s8 offset-s2 ng-repeat="thingy in events">
   		<div class="divider"></div>
 				<h5>When: {{thingy.when}}</h5>
 				<h5>Where: {{thingy.where}}</h5>
 				<h6>Details: {{thingy.comments.comment}}</h6>
-				<!-- <h6>Posted by: {{events.}}</h6> -->
 				<div class="divider"></div>
   	</div>
-  </div>
+  </div> -->
 
   <!-- closing div -->
 </div>
