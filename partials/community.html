@@ -18,7 +18,7 @@
   	<div class="col s10 offset-s1" ng-repeat="thingy in threads">
   		<h6></h6>
   		<div class="divider"></div>
-  			<a class="selectedThread" href="http://localhost:8080/?#/community/thread" ng-click="getSelectedPost()">{{thingy.title}}</a>
+  			<a class="selectedThread" href="#/community/thread/:{{}}" ng-click="getSelectedThread(thingy.id)">{{thingy.title}}</a>
   			<h6>Posted by: {{thingy.user}}</h6>
   		<div class="divider"></div>
   	</div>

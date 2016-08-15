@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("ThreadCtrl", function($scope, DatabaseFactory, $location, AuthFactory) {
+app.controller("ThreadCtrl", function($scope, DatabaseFactory, $routeParams) {
 
 	//Database.getSelectedThread
 	//postNewComment
