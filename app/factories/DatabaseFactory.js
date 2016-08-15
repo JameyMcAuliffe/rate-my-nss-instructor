@@ -98,6 +98,25 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
+	let getPosts = function(id) {
+		let posts = [];
+		return $q(function(resolve, reject) {
+			$http.get(`${FirebaseURL}/threads/${id}/posts.json`)
+			.success(function(postObject) {
+			if(postObject) {
+				Object.keys(postObject).forEach(function(key) {
+					postObject[key].id = key;
+					posts.push(postObject[key]);
+				});
+			}
+				resolve(postObject);
+			})
+			.error(function(error) {
+				reject(error);
+			});
+		});
+	};
+
 
 	let deleteRating = function (id) {
     return $q(function(resolve, reject) {
@@ -113,7 +132,7 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
     });
   };
 
-	return {postNewRating, getRatings, deleteRating, getThreads, postNewThread, getThread, addPost};
+	return {postNewRating, getRatings, deleteRating, getThreads, postNewThread, getThread, addPost, getPosts};
 });
 
 

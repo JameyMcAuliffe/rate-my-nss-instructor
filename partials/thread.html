@@ -12,6 +12,15 @@
   			<h6>Posted by: {{thread.user}}</h6>
   			<h5>{{thread.originalPost}}</h5>
   		<div class="divider"></div>
+  			  <!-- Dynamically added posts from firebase -->
+		  <div class="row user-posts">
+		  	<div class="col s10" ng-repeat="thingy in posts">
+		  		<div class="divider"></div>
+		  			<h6>Posted by: {{thingy.user}}</h6>
+		  			<h5>{{thingy.post}}</h5>
+		  		<div class="divider"></div>
+		  	</div>
+		  </div>
   	</div>
   </div>
   </div>
