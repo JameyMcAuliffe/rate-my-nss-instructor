@@ -7,7 +7,16 @@ app.controller("CommCtrl", function($scope, DatabaseFactory, $location, AuthFact
 	.then(function(threadsArray) {
 		$scope.threads = threadsArray;
 		console.log("threadsArray", $scope.threads);
-		console.log("threadID", $scope.threads[0].id);
+		//console.log("threadID", $scope.threads[0].id);
+		
+		//let dynamicId = 0;
+		$scope.threadId = "";
+		
+		angular.forEach(threadsArray, function(value) {
+			$scope.threadId = value.id;
+			console.log("thread id", $scope.threadId);
+			//dynamicId++;
+		});
 	});
 
 	/************** Show/Hide Functionality ****************/
@@ -53,7 +62,7 @@ app.controller("CommCtrl", function($scope, DatabaseFactory, $location, AuthFact
 		$scope.hideThreads = false;
 	};
 
-	$scope.getThreadId = function() {
-
+	$scope.getSelectedPost = function() {
+		console.log($scope.threadId.originalPost);
 	};
 });

@@ -5,7 +5,7 @@
 		<h3>Cup o' Joe</h3>
 	</div>
 	<div class="row center-align">
-		<h4>Message board to discuss all things Joe</h4>
+		<h5>Message board to discuss all things Joe</h5>
 	</div>
 
 	<!-- Add Threads -->
@@ -15,10 +15,10 @@
 
   <!-- Threads from firebase -->
   <div class="row user-threads" ng-hide="hideThreads">
-  	<div class="col s12" ng-repeat="thingy in threads">
+  	<div class="col s10 offset-s1" ng-repeat="thingy in threads">
   		<h6></h6>
   		<div class="divider"></div>
-  			<a href="http://localhost:8080/?#/community/thread" ng-click="getThreadId()">{{thingy.title}}</a>
+  			<a class="selectedThread" href="http://localhost:8080/?#/community/thread" ng-click="getSelectedPost()">{{thingy.title}}</a>
   			<h6>Posted by: {{thingy.user}}</h6>
   		<div class="divider"></div>
   	</div>
@@ -43,13 +43,11 @@
 	  </div>
     </form>
   </div>
-
-  
-  
+</div>
 
 
 
-  <!-- User Events -->
+ <!-- User Events -->
   <!-- <div class="row user-events">
   	<div class col s8 offset-s2 ng-repeat="thingy in events">
   		<div class="divider"></div>
@@ -61,4 +59,3 @@
   </div> -->
 
   <!-- closing div -->
-</div>

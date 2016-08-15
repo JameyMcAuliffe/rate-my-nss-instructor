@@ -70,24 +70,6 @@ app.factory("DatabaseFactory", function(FirebaseURL, $q, $http, AuthFactory) {
 		});
 	};
 
-	// let getEvents = function() {
-	// 	let events = [];
-	// 	return $q(function(resolve, reject) {
-	// 		$http.get(`${FirebaseURL}/events.json`)
-	// 		.success(function(eventObject) {
-	// 			if(eventObject) {
-	// 				Object.keys(eventObject).forEach(function(key) {
-	// 					eventObject[key].id = key;
-	// 					events.unshift(eventObject[key]);
-	// 				});
-	// 			}
-	// 			resolve(events);
-	// 		})
-	// 		.error(function(error) {
-	// 			reject(error);
-	// 		});
-	// 	});
-	// };
 
 	let deleteRating = function (id) {
     return $q(function(resolve, reject) {

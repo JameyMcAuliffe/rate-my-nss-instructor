@@ -11,9 +11,19 @@ app.controller("InstructorCtrl", function($scope, DatabaseFactory, $location, Au
 
 		//Loop through ratingsArray to calculate Average Rating
 		let total = 0;
+		let currentUser = AuthFactory.getUser();
+
 		angular.forEach(ratingsArray, function(value) {
 			let rating = parseInt(value.rating);
 			total = total + rating;
+
+			//checks to see if the user's uid is logged as having made a rating,
+			//then shows edit/delete buttons if so
+			if (currentUser === value.uid) {
+				$scope.hideRatingButton = true;
+				$scope.showEditDelete = true;
+			}
+
 		});
 		console.log("total", total);
 		$scope.totalRating = total / ratingsArray.length;
