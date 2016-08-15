@@ -8,7 +8,14 @@
 		<h5>Message board to discuss all things Joe</h5>
 	</div>
 
+	<div class="row" ng-show="hideThreads">
+		<div class="center align">
+			<h4>Login to view threads</h4>
+		</div>
+	</div>
+
 	<!-- Add Threads -->
+	<div ng-show="showThreads">
 	<div class="add-event center-align">
 		<button class="btn waves-effect waves-light blue darken-4 z-depth-5" ng-click="showThreadForm()">Create New Thread</button>
   </div>
@@ -18,10 +25,11 @@
   	<div class="col s10 offset-s1" ng-repeat="thingy in threads">
   		<h6></h6>
   		<div class="divider"></div>
-  			<a class="selectedThread" href="http://localhost:8080/?#/community/thread" ng-click="getSelectedPost()">{{thingy.title}}</a>
+  			<a class="selectedThread" href="#/community/thread/{{thingy.id}}" ng-click="getSelectedThread(thingy.id)">{{thingy.title}}</a>
   			<h6>Posted by: {{thingy.user}}</h6>
   		<div class="divider"></div>
   	</div>
+  </div>
   </div>
 
   <!-- Hidden threads form -->
@@ -43,19 +51,8 @@
 	  </div>
     </form>
   </div>
-</div>
-
-
-
- <!-- User Events -->
-  <!-- <div class="row user-events">
-  	<div class col s8 offset-s2 ng-repeat="thingy in events">
-  		<div class="divider"></div>
-				<h5>When: {{thingy.when}}</h5>
-				<h5>Where: {{thingy.where}}</h5>
-				<h6>Details: {{thingy.comments.comment}}</h6>
-				<div class="divider"></div>
-  	</div>
-  </div> -->
 
   <!-- closing div -->
+</div>
+
+  

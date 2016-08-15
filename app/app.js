@@ -29,7 +29,7 @@ app.config(function($routeProvider, FBCreds) {
       templateUrl: "partials/community.html",
       controller: "CommCtrl"
    })
-  .when('/community/thread', {
+  .when('/community/thread/:id', {
       templateUrl: "partials/thread.html",
       controller: "ThreadCtrl"
    });
