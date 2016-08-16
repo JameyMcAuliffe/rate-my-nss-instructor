@@ -49,9 +49,11 @@
 	align-items: center;
 }
 
-.joe-pic {
+.joe-pic,
+.cup-pic {
 	border-radius: 50%;
 	border: 1px solid black;
+	margin-top: 20px;
 }
 
 .joe-header {
@@ -60,6 +62,7 @@
 
 .rate {
 	padding-top: 20px;
+	margin-bottom: 20px;
 }
 
 body {
@@ -70,6 +73,31 @@ body {
 
 .main {
   flex: 1 0 auto;
+}
+
+.selectedThread {
+	font-size: 150%;
+}
+
+.back-to-board {
+	margin-top: 80px;
+}
+
+.user-threads {
+	margin-top: 20px;
+}
+
+.total-rating {
+	font-size: 800%;
+}
+
+.nav-wrapper {
+	font-size: 115%;
+	padding-left: 10px;
+}
+
+.foot-link {
+	margin-right: 10px;
 }
 
 

@@ -2,10 +2,12 @@
 	<!-- opening div -->
 	
 	<div class="row center-align">
-		<h3>Cup o' Joe</h3>
+		<!-- <img class="joe-pic" src="../img/joe.jpeg"> -->
+		<img class="cup-pic" src="../img/cup.jpg">
+		<!-- <h3>Cup o' Joe Message Board</h3> -->
 	</div>
 	<div class="row center-align">
-		<h5>Message board to discuss all things Joe</h5>
+		<h5>Here we gather to discuss all things Joe</h5>
 	</div>
 
 	<div class="row" ng-show="hideThreads">
@@ -21,7 +23,7 @@
   </div>
 
   <!-- Threads from firebase -->
-  <div class="row user-threads" ng-hide="hideThreads">
+  <div class="row user-threads" ng-show="showThreads">
   	<div class="col s10 offset-s1" ng-repeat="thingy in threads">
   		<h6></h6>
   		<div class="divider"></div>
