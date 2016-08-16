@@ -33,12 +33,14 @@ app.controller("CommCtrl", function($scope, DatabaseFactory, AuthFactory) {
 
 	$scope.showThreadForm = function() {
 		$scope.threadForm = true;
-		$scope.hideThreads = true;
+		$scope.hideThreads = false;
+		$scope.showThreads = false;
 	};
 
 	$scope.cancelNewThread = function() {
 		$scope.threadForm = false;
 		$scope.hideThreads = false;
+		$scope.showThreads = true;
 	};
 
 	/*********** End Show/Hide Functionality *************/
